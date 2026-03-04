@@ -2,8 +2,6 @@
 
 A speech-to-text pipeline built on [OpenAI Whisper](https://github.com/openai/whisper). It accepts audio files in any common format, transcribes them with per-segment timestamps, and can be run as a simple CLI tool or exposed as a REST API.
 
----
-
 ## Quick Start
 
 ```bash
@@ -21,8 +19,6 @@ python transcribe.py path/to/audio.mp3
 # Run as API server (optional)
 uvicorn src.api:app --reload --port 8000
 ```
-
----
 
 ## Part 1: Transcription Pipeline — Design Decisions
 
@@ -49,8 +45,6 @@ The threshold is configurable via `long_file_threshold_mb` in `pipeline.run()`. 
 ### Timestamped Segments
 
 Whisper returns rich segment-level data with start/end times. The pipeline formats this into a clean structure: each segment is a dict with `start`, `end`, and `text` fields. Empty or whitespace-only segments are filtered out automatically. When processing chunked files, timestamps are adjusted to reflect absolute time in the original recording.
-
----
 
 ## Part 2: System Design Considerations
 
@@ -95,8 +89,6 @@ A simple REST API with an async job pattern:
 Why async? Transcription can take minutes. Making clients wait would hit HTTP timeouts and waste connection resources. With async, clients upload, get a job ID immediately, then poll until completion.
 
 Future enhancements could include webhook callbacks, pagination for very long transcripts, and authentication at the API gateway level.
-
----
 
 ## Project Structure
 
