@@ -22,7 +22,7 @@ python transcribe.py path/to/audio.mp3
 uvicorn src.api:app --reload --port 8000
 ```
 
-## Part 1: Transcription Pipeline — Design Decisions
+## Part 1: Transcription Pipeline
 
 ### Why Whisper?
 
