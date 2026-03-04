@@ -1,0 +1,9 @@
+# Core transcription — only dependencies needed to run `python transcribe.py`
+openai-whisper>=20231117
+torch>=2.0.0
+
+# Audio processing — uses ffmpeg directly via subprocess (no pydub needed)
+# ffmpeg must be installed on your system:
+#   Windows: winget install ffmpeg
+#   macOS:   brew install ffmpeg
+#   Ubuntu:  sudo apt install ffmpeg
