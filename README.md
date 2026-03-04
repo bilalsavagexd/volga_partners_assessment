@@ -1,5 +1,7 @@
 # Transcription Pipeline
 
+![Transcription Pipeline Architecture](Transcription%20Pipeline%20Architecture.png)
+
 A speech-to-text pipeline built on [OpenAI Whisper](https://github.com/openai/whisper). It accepts audio files in any common format, transcribes them with per-segment timestamps, and can be run as a simple CLI tool or exposed as a REST API.
 
 ## Quick Start
